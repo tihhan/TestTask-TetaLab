@@ -1,11 +1,11 @@
 package com.example.testapp.data.room
 
-import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import android.content.Context
 
-@Database(entities = [BookmarkedArticle::class], version = 1)
+@Database(entities = [BookmarkedArticle::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun bookmarkDao(): BookmarkDao
 
@@ -19,7 +19,9 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                )
+                    .addMigrations(MIGRATION_1_2)  // Add the migration strategy here
+                    .build()
                 INSTANCE = instance
                 instance
             }

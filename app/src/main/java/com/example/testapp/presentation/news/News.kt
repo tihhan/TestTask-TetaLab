@@ -1,6 +1,8 @@
 package com.example.testapp.presentation.news
 
 import BookmarkedViewModel
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -27,8 +29,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.testapp.ViewModels.NewsViewModel
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun NewsApp(BookmarkedViewModel: BookmarkedViewModel, viewModel: NewsViewModel, searchQuery: String) {
+fun NewsApp(
+    BookmarkedViewModel: BookmarkedViewModel,
+    viewModel: NewsViewModel,
+    searchQuery: String
+) {
+
     val filteredNewsList by remember(searchQuery) {
         derivedStateOf {
             viewModel.newsList.filter { it.title.contains(searchQuery, ignoreCase = true) }
@@ -75,6 +83,8 @@ fun NewsApp(BookmarkedViewModel: BookmarkedViewModel, viewModel: NewsViewModel, 
                     description = article.description,
                     url = article.url,
                     imageUrl = article.urlToImage,
+                    author = article.author,
+                    publishedAt = article.publishedAt,
                     viewModel = BookmarkedViewModel
                 )
                 Spacer(modifier = Modifier.height(6.dp))

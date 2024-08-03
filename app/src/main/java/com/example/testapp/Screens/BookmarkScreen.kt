@@ -1,6 +1,8 @@
 package com.example.testapp.Screens
 
 import BookmarkedViewModel
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.testapp.presentation.news.NewsItem
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun BookmarkScreen(viewModel: BookmarkedViewModel, searchQuery: String) {
     val bookmarkedArticles by viewModel.bookmarkedArticles.collectAsState()
@@ -40,6 +43,8 @@ fun BookmarkScreen(viewModel: BookmarkedViewModel, searchQuery: String) {
                     description = article.description,
                     url = article.url,
                     imageUrl = article.imageUrl,
+                    author = article.author,
+                    publishedAt = article.publishedAt,
                     viewModel = viewModel
                 )
                 Spacer(modifier = Modifier.height(8.dp))

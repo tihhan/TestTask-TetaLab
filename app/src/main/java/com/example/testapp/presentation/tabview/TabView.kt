@@ -1,6 +1,8 @@
 package com.example.testapp.presentation.tabview
 
 import BookmarkedViewModel
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
@@ -14,6 +16,7 @@ import com.example.testapp.ViewModels.NewsViewModel
 import com.example.testapp.presentation.news.NewsApp
 import com.example.testapp.presentation.search.SearchBar
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTabView(bookmarkedViewModel: BookmarkedViewModel, viewModel: NewsViewModel) {

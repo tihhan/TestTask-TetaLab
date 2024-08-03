@@ -30,7 +30,9 @@ class BookmarkedViewModel(application: Application) : AndroidViewModel(applicati
             url = article.url,
             title = article.title,
             description = article.description,
-            imageUrl = article.urlToImage
+            imageUrl = article.urlToImage,
+            author = article.author,
+            publishedAt = article.publishedAt
         )
 
         viewModelScope.launch {
