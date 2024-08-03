@@ -45,7 +45,7 @@ class NewsViewModel : ViewModel() {
     }
 
     fun loadMoreNews() {
-        if (_loadingState.value) return // Prevent multiple simultaneous calls
+        if (_loadingState.value) return
         currentPage++
         fetchNews()
     }

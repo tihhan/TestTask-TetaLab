@@ -9,6 +9,6 @@ data class BookmarkedArticle(
     val title: String,
     val description: String?,
     val imageUrl: String?,
-    val author: String?,  // New field
-    val publishedAt: String?  // New field
+    val author: String?,
+    val publishedAt: String?
 )

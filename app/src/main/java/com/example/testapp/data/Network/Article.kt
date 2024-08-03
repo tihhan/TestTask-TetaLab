@@ -5,6 +5,6 @@ data class Article(
     val description: String?,
     val url: String,
     val urlToImage: String?,
-    val author: String?,  // New field
+    val author: String?,
     val publishedAt: String?
 )

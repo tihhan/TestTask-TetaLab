@@ -55,8 +55,8 @@ fun NewsItem(
     description: String?,
     url: String,
     imageUrl: String?,
-    author: String?,  // New parameter
-    publishedAt: String?,  // New parameter
+    author: String?,
+    publishedAt: String?,
     viewModel: BookmarkedViewModel
 )
 {
@@ -71,10 +71,10 @@ fun NewsItem(
     }
 
     val formatter = remember {
-        DateTimeFormatter.ofPattern("d MMMM yyyy, HH:mm") // Example pattern
+        DateTimeFormatter.ofPattern("d MMMM yyyy, HH:mm")
     }
 
-    // Convert publishedAt string to LocalDateTime and format it
+
     val formattedDate = remember(publishedAt) {
         publishedAt?.let {
             val zdt = ZonedDateTime.parse(it)
